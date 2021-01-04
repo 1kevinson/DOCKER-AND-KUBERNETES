@@ -1,7 +1,7 @@
 # Define an image dependency present in host machine or in dockerhub
 FROM node
 
-# Root folder where the commands must be executed
+# Root folder where the commands must be executed (will be created in container if not exist)
 WORKDIR /app
 
 # Copy source files/folders to destination in the container
