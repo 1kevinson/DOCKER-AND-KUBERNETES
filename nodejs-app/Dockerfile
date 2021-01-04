@@ -5,12 +5,16 @@ FROM node
 WORKDIR /app
 
 # Copy source files/folders to destination in the container
-COPY . /app
+# optimize by copying package.json to store dependencies in cache before copying folder files
+COPY package.json /app
 
 # Run commands on images > Executed when the image is created
 RUN npm install
 
-# Expose on the host the port needed by the container
+# Copy source files/folders to destination in the container
+COPY . /app
+
+# Expose on the host (local machine) the port needed by the container
 EXPOSE 8081
 
 # Run when the container is started base on the image
