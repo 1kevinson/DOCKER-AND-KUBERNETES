@@ -14,7 +14,8 @@ RUN npm install
 # Copy source files/folders to destination in the container
 COPY . /app
 
-# Expose on the host (local machine) the port needed by the container
+# Informs docker that the container listens on the specified network ports at runtime 
+# example docker run -p 4OOO:8081
 EXPOSE 8081
 
 # Run when the container is started base on the image
