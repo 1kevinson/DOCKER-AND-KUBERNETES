@@ -11,7 +11,7 @@ COPY package.json /app
 # Run commands on images > Executed when the image is created
 RUN npm install
 
-# Copy source files/folders to destination in the container
+# Copy new files/folders from source (in local machiine) to destination in the container
 COPY . /app
 
 # Informs docker that the container listens on the specified network ports at runtime 
