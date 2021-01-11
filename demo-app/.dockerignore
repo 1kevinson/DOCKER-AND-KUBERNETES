@@ -1,0 +1,2 @@
+# This file is made to ignore file/folder being copied into container
+node_modules
