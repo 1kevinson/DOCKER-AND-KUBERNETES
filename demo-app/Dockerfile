@@ -8,7 +8,11 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+# 80 Is the default value and can be edited with --env PORT=?
+ENV PORT 80
+
+# Dollar sign indicate docker that's name of env variable
+EXPOSE $PORT
 
 # VOLUME [ "/app/node_modules" ]
 
