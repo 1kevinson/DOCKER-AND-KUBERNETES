@@ -14,7 +14,7 @@ VOLUME ["/app/node_modules"]
 # Bundle app sources
 COPY . /app
 
-EXPOSE 80
+EXPOSE 3000
 
 # Launch the app
 CMD ["npm","start"]  
