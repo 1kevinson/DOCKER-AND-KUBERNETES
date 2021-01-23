@@ -17,4 +17,4 @@ COPY . /app
 EXPOSE 80
 
 # Launch the app
-CMD ["node","app.js"]  
+CMD ["npm","start"]  

@@ -62,7 +62,7 @@ app.post('/goals', async (req, res) => {
     res
       .status(201)
       .json({ message: 'Goal saved', goal: { id: goal.id, text: goalText } });
-    console.log('STORED NEW GOAL');
+    console.log('STORED NEW GOAL !');
   } catch (err) {
     console.error('ERROR FETCHING GOALS');
     console.error(err.message);
@@ -84,7 +84,7 @@ app.delete('/goals/:id', async (req, res) => {
 });
 
 mongoose.connect(
-  'mongodb://userme:secret@mongodb:27017/course-goals?authSource=admin',
+  'mongodb://mongodb:27017/course-goals',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
