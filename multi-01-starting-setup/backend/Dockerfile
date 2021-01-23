@@ -16,7 +16,7 @@ COPY . /app
 
 EXPOSE 80
 
-# environment variables for db credentials
+# environment variables for db credentials with default value
 ENV MONGODB_USERNAME=root
 ENV MONGODB_PASSWORD=secret
 
