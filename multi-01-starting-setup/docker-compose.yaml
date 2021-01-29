@@ -10,6 +10,7 @@ services:
 
   backend:
     build: ./backend 
+    image: 'backend-dev'
     ports:
       - '80:80'
     volumes: 
@@ -24,6 +25,7 @@ services:
 
   frontend:
     build: ./frontend
+    image: 'frontend-dev'
     ports: 
       - '3000:3000'
     volumes: 
