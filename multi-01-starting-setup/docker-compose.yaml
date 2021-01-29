@@ -4,20 +4,33 @@ services:
     image: 'mongo'
     volumes:
       - data:/data/db
-    #environment:
-      #MONGO_INITDB_ROOT_USERNAME: kevin
-      #MONGO_INITDB_ROOT_PASSWORD: secret
+    # environment: > if we don't use a env file
+      # MONGO_INITDB_ROOT_USERNAME: kevin
+      # MONGO_INITDB_ROOT_PASSWORD: secret
     env_file: 
       - ./env/mongo.env
 
   backend:
-    #build: ./backend > use Dockerfile 
-    build:
-      context: ./backend
-      #dockerfile: Dockerfile-dev > use with custom docker file
+    build: ./backend # use Dockerfile 
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile-dev > use with custom docker file
+    #   args:
+    #     some-arg: 1
+    ports:
+      - '80:80'
+    volumes: 
+      - logs:/app/logs
+      - ./backend:/app # bind mount with relative path
+      - /app/node_modules # anonymous volumes (that we want to save in container)
+    env_file: 
+      - ./env/backend.env
+    depends_on: 
+      - mongodb
 
   # frontend:
   #   image: 
 
 volumes: 
   data:
+  logs:
