@@ -9,12 +9,15 @@ services:
       #MONGO_INITDB_ROOT_PASSWORD: secret
     env_file: 
       - ./env/mongo.env
-  
-volumes: 
-  data:
 
-  # backend:
-  #   image: 
+  backend:
+    #build: ./backend > use Dockerfile 
+    build:
+      context: ./backend
+      #dockerfile: Dockerfile-dev > use with custom docker file
 
   # frontend:
   #   image: 
+
+volumes: 
+  data:
