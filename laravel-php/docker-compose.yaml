@@ -31,5 +31,18 @@ services:
     volumes: 
       # Mount for installation of the project base template (run this service 1st)
       - ./src:/var/www/html
+  artisan:
+    build: 
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes: 
+      - ./src:/var/www/html
+    entrypoint: ["php","/var/www/html/artisan"]
+  npm:
+    image: node:14
+    working_dir: /var/www/html
+    entrypoint: ["npm"]
+    volumes: 
+      - ./src:/var/www/html
 
     
