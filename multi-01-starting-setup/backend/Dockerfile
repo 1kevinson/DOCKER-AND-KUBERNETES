@@ -1,10 +1,14 @@
 FROM node
+# Create home directory and give a permission to node user
+RUN mkdir -p /app && chown -R node:node /app
 
 # Create app directory
 WORKDIR /app
 
 # Install dependencies
 COPY package.json /app
+# Using node user
+USER node
 
 RUN npm install
 
@@ -12,7 +16,7 @@ RUN npm install
 VOLUME ["/app/node_modules"]
 
 # Bundle app sources
-COPY . /app
+COPY --chown=node:node . . 
 
 EXPOSE 80
 
